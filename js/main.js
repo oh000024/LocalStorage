@@ -29,13 +29,13 @@ function editData(index, contact) {
 	contactList[index].phone = document.getElementById("phone").value;
 
 	updateAll();
-	offModal();
+
 
 	document.querySelector(".buttonSave").removeEventListener("click", editData);
-
 	document.querySelector(".buttonSave").onclick = function () {
 		saveData();
 	}
+	offModal();
 }
 
 function cancel() {
