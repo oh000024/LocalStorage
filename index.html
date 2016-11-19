@@ -25,7 +25,7 @@
 		</ul>
 	</main>
 	<footer>
-		<div class="fab" onclick="flipInputModal()"></div>
+		<div class="fab"></div>
 	</footer>
 
 	<div class ="overlay">
@@ -40,11 +40,11 @@
 			</fieldset>
 			<fieldset>
 				<legend>Phone</legend>
-				<input type="number" value="" id="phone" maxlength="10" tabindex="3" />
+				<input type="text" value="" id="phone" maxlength="10" tabindex="3" />
 			</fieldset>
 
-			<input type="button" value="Save" width="150px" height="90px" onclick="saveData()">
-			<input type="button" value="Cancel" width ="160px" height="90px" onclick="flipInputModal()">
+			<input type="button" id="save" value="Save" width="150px" height="90px">
+			<input type="button" id="cancel" value="Cancel" width ="160px" height="90px">
 
 		</form>
 	</div>
