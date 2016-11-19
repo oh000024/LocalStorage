@@ -28,6 +28,7 @@
 		<div class="fab"></div>
 	</footer>
 
+	<!--
 	<div class ="overlay">
 		<form class= "contactform">
 			<fieldset>
@@ -48,8 +49,50 @@
 
 		</form>
 	</div>
+-->
+
+	<div class="overlay"></div>
+	<div class="modal">
+		<!-- form Content-->
+		<div>
+			<h2>Add Contact</h2>
+		</div>
+
+		<div class="modal-body">
+			<p class="formBox">
+				<div>
+					<label for="fullname">Full Name:</label>
+					<input id="fullname" type="text" placeholder="name" class="sm" />
+				</div>
+				<div>
+					<label for="email">email:</label>
+					<input id="email" type="text" placeholder="email" class="sm" />
+				</div>
+				<div>
+					<label for="phone">phone:</label>
+					<input id="phone" type="text" placeholder="phone" class="sm" />
+				</div>
+			</p>
+		</div>
+
+		<div class="modal-buttons">
+			<!--
+			<button class="buttonSave">Save</button>
+			<button class="buttonCancel">Cancel</button>
+			
+-->
+			<input type="button" class="buttonSave" value="Save" width="150px" height="90px">
+			<input type="button" class="buttonCancel" value="Cancel" width="160px" height="90px">
+		</div>
+
+
+		<div>
+			<h3>Contact Manager</h3>
+		</div>
+	</div>
+
 	<script src="js/main.js"></script>
-	<script src="js/AddData.js"></script>
+	<script src="js/util.js"></script>
 </body>
 
 </html>
