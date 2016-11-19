@@ -44,6 +44,7 @@ function cancel() {
 
 function addContact() {
 
+	let h2 = document.querySelector("h2").textContent = "Add Contact";
 	let fullname = document.getElementById("fullname").value = "";
 	let email = document.getElementById("email").value = "";
 	let phone = document.getElementById("phone").value = "";
@@ -85,6 +86,8 @@ function deleteContact(ev) {
 };
 
 function editContact(ev) {
+	let h2 = document.querySelector("h2").textContent = "Edit Contact";
+
 	let nValue = ev.currentTarget.parentElement.childNodes[1].textContent;
 	let eValue = ev.currentTarget.parentElement.childNodes[2].textContent;
 	let pValue = ev.currentTarget.parentElement.childNodes[3].textContent;
