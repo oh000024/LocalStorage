@@ -18,10 +18,10 @@ function saveData() {
 
 	// Index is -1 means add mode
 	let retobj = searchData(contact1);
-	if (NOT_FOUND_DATA == retobj.index) {
+	if ((NOT_FOUND_DATA == retobj.index) && (ADDFORM == formMoad)) {
 		// reading new data and push.
 		contactList.push(contact1);
-	} else {
+	} else if(EDITFORM==formMoad) {
 		contactList[retobj.index].fullname = contact1.fullname;
 		contactList[retobj.index].email = contact1.email;
 		contactList[retobj.index].phone = contact1.phone;
@@ -30,56 +30,12 @@ function saveData() {
 	updateAll();
 	offModal();
 }
-//
-//function editData(index, contact) {
-//
-//	contactList[index].fullname = document.getElementById("fullname").value;
-//	contactList[index].email = document.getElementById("email").value;
-//	contactList[index].phone = document.getElementById("phone").value;
-//	if (0 == contactList[index].fullname.length) {
-//		alert("Name Value is Empty");
-//		return;
-//	}
-//	updateAll();
-//
-//	document.querySelector(".buttonSave").removeEventListener("click", editData);
-//	document.querySelector(".buttonSave").onclick = function () {
-//		saveData();
-//	}
-//	offModal();
-//}
 
 function cancel() {
 	offModal();
+	formMoad="";
 }
-//
-//function save() {
-//	let contact = {
-//			fullname: document.getElementById("fullname").value,
-//			email: document.getElementById("email").value,
-//			phone: document.getElementById("phone").value
-//		}
-//		// Input data is null then return
-//	if (0 == contact.fullname.length || 0 == contact.email.length || 0 == contact.phone.length) {
-//		alert("Value is Empty, Try it again");
-//		return;
-//	}
-//	if (formMoad === ADDFORM) {
-//		contactList.push(contact);
-//	} else {
-//		let retContact = searchData(contact);
-//		//Show a found data in modal
-//		if (NOT_FOUND_DATA != retContact.index) {
-//			document.getElementById("fullname").value = contactList[retContact.index].fullname;
-//			document.getElementById("email").value = contactList[retContact.index].email;
-//			document.getElementById("phone").value = contactList[retContact.index].phone;
-//		}
-//	}
-//	updateAll();
-//	offModal();
-//	//document.querySelector(".buttonSave").removeEventListener('click', save);
-//
-//}
+
 
 function addContact() {
 
@@ -87,28 +43,8 @@ function addContact() {
 	document.getElementById("fullname").value = "";
 	document.getElementById("email").value = "";
 	document.getElementById("phone").value = "";
+	formMoad=ADDFORM;
 
-//	document.querySelector(".buttonSave").addEventListener('click', function save() {
-//
-//		let contact = {
-//				fullname: document.getElementById("fullname").value,
-//				email: document.getElementById("email").value,
-//				phone: document.getElementById("phone").value
-//			}
-//			// Input data is null then return
-//		if (0 == contact.fullname.length || 0 == contact.email.length || 0 == contact.phone.length) {
-//			alert("Value is Empty, Try it again");
-//			document.querySelector(".buttonSave").removeEventListener('click', save);
-//			return;
-//		}
-//		contactList.push(contact);
-//		updateAll();
-//		offModal();
-//		document.querySelector(".buttonSave").removeEventListener('click', save);
-//
-//	});
-//
-//	formMoad = ADDFORM;
 	onModal();
 }
 
@@ -162,28 +98,7 @@ function editContact(ev) {
 		document.getElementById("email").value = contactList[retContact.index].email;
 		document.getElementById("phone").value = contactList[retContact.index].phone;
 	} 
-	//else {
-//		offModal();
-//		return;
-//	}
-//
-//	onModal();
-//	document.querySelector(".buttonSave").addEventListener('click', function edit() {
-//
-//		if (0 == document.getElementById("fullname").value.length) {
-//			alert("Value is Empty");
-//			offModal();
-//			document.querySelector(".buttonSave").removeEventListener('click', edit);
-//			return;
-//		}
-//		contactList[retContact.index].fullname = document.getElementById("fullname").value;
-//		contactList[retContact.index].email = document.getElementById("email").value;
-//		contactList[retContact.index].phone = document.getElementById("phone").value;
-//
-//		updateAll();
-//		offModal();
-//		document.querySelector(".buttonSave").removeEventListener('click', edit);
-//	});
+
 	formMoad = EDITFORM;
 	
 	onModal();
