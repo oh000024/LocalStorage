@@ -2,20 +2,28 @@ const GOBALKEY = "oh000024";
 const NOT_FOUND_DATA = -1;
 const SAVEMODE = 1;
 const EDITMODE = 2;
+const ADDFORM = "addform";
+const EDITFORM = "editform";
 
 function sortContact() {
+
 	contactList.sort(function compare(a, b) {
-		if (a.fullname < b.fullname)
+		let A = a.fullname.toLowerCase();
+		let B = b.fullname.toLowerCase();
+		if (A < B) {
 			return -1;
-		else if (a.fullname === b.fullname)
+		} else if (A > B) {
+			return 1;
+		} else {
 			return 0;
-		return 1;
+		}
 	});
 }
 
 function searchData(contactvalue) {
 	for (let i = 0; i < contactList.length; i++) {
-		if ((contactList[i].fullname == contactvalue.fullname) && (contactList[i].email == contactvalue.email) && (contactList[i].phone == contactvalue.phone)) {
+		if ((contactList[i].fullname == contactvalue.fullname) || (contactList[i].email == contactvalue.email) || (contactList[i].phone == contactvalue.phone)) 
+			{
 			return {
 				contact: contactList[i],
 				index: i
@@ -91,9 +99,9 @@ function addChildNode(contact) {
 }
 
 function setBtnEvent() {
-	let btn = document.querySelector(".buttonSave");
-	btn.addEventListener("click", saveData);
+	//	let btn = document.querySelector(".buttonSave");
+	//	btn.addEventListener("click", saveData);
 	document.querySelector(".buttonCancel").addEventListener("click", cancel);
 	document.querySelector(".fab").addEventListener("click", addContact);
-
+	document.querySelector(".buttonSave").addEventListener("click", saveData);
 }
